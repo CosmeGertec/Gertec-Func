@@ -11,8 +11,8 @@ from datetime import datetime, timedelta
 
 sharepoint_base_url = 'https://gertecsao.sharepoint.com/sites/PowerBi-Estoque/'
 folder_in_sharepoint = '/sites/PowerBi-Estoque/Documentos%20Compartilhados/General/Expedi%C3%A7%C3%A3o/Planilhas/'
-sharepoint_user = 'gertec.visualizador@gertec.com.br'
-sharepoint_password = 'G@9012hdsOQJH215'
+sharepoint_user = st.secrets.sharepoint.USER
+sharepoint_password = st.secrets.sharepoint.SENHA
 
 auth = AuthenticationContext(sharepoint_base_url)
 auth.acquire_token_for_user(sharepoint_user, sharepoint_password)
