@@ -99,6 +99,7 @@ def create_df_saldo_contratos(df):
 def create_df_saldo_contratos_resumido(df):
 
     abertura_os = df_sharep(abertura_os_url, 'excel', 'BASE', sharepoint_os_url)
+    abertura_os = abertura_os[(abertura_os['ABRIR O.S'] != "0") | (abertura_os['DIVERGÊNCIA'] != "0")]
     abertura_os.reset_index(drop=True, inplace=True)
     abertura_os.loc[abertura_os['CLIENTE GERFLOOR'].isna(), 'CLIENTE GERFLOOR'] = abertura_os.loc[
         abertura_os['CLIENTE GERFLOOR'].isna(), 'CLIENTES'].apply(lambda x: x.split(" - ", maxsplit=1)[0])
